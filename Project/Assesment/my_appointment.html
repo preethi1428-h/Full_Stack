@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Appointments</title>
+  <link rel="stylesheet" href="../style.css/my_appointment.css">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="title">
+      <p>De Addiction centre,Rehabilitation Centre</p>
+      <div class="title-group">
+        <img src="../asserts/logo original.png" alt="logo" height="60px" width="60">
+        <h1>HEALING <br> HANDS</h1>
+        <img class="img2" src="../asserts/Email logo.png" alt="logo" height="50px" width="50px">
+        <div class="content">
+          <h3>Email</h3>
+          <p>healinghands@gmail.com</p>
+        </div>
+        <img class="img2" src="../asserts/phone logo.png" alt="logo" height="50px" width="50px">
+        <div class="content">
+          <h3>Call Now</h3>
+          <p>6380609753</p>
+        </div>
+        <a href="../Assesment/appointment.html" class="btn-primary">APPOINTMENT</a>
+        <div class="login" id="authSection"></div>
+      </div>
+    </div>
+    <div>
+      <nav>
+        <a href="../../index.html">HOME</a>
+        <a href="../Assesment/services.html">SERVICES</a>
+        <a href="../Assesment/my_appointment.html">MY APPOINTMENT</a>
+        <a href="../Assesment/contact.html">CONTACT</a>
+
+      </nav>
+
+    </div>
+    </div>
+  </header>
+
+
+  <!-- Appointment Section -->
+  <section class="appointments">
+    <h1>My Appointments</h1>
+    <p>Here is the status of your appointment requests.</p>
+
+    <div id="appointmentContainer"></div>
+
+
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div>
+      <h4>Healing hands</h4>
+      <p>Your AI-powered companion on the journey to recovery.</p>
+    </div>
+
+    <div>
+      <h4>Quick Links</h4>
+      <a href="../Assesment/about_us.html">About Us</a><br>
+      <a href="../Assesment/resources.html">Resources</a><br>
+      <a href="../Assesment/contact.html">Contact</a><br>
+      <a href="../Assesment/privacy_policy.html">Privacy Policy</a>
+    </div>
+
+    <div>
+      <h4>Support</h4>
+      <a href="../Assesment/help_center.html">Help Center</a><br>
+      <a href="../Assesment/community_guideliness.html">Community Guidelines</a>
+    </div>
+  </footer>
+
+  <div class="bottom">
+    &copy;2026 Healing Hands. All Rights Reserved
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+      const authSection = document.getElementById("authSection");
+      const container = document.getElementById("appointmentContainer");
+
+      const userData = JSON.parse(localStorage.getItem("loggedInUser"));
+
+      if (!userData) {
+        alert("Please login first");
+        window.location.href = "../Assesment/login.html";
+        return;
+      }
+
+      const userId = userData.id;
+
+      //  Logout Button
+      authSection.innerHTML = `
+    <button class="logout-btn" onclick="logout()">LOGOUT</button>
+  `;
+
+      window.logout = function () {
+        localStorage.removeItem("loggedInUser");
+        alert("Logged out successfully!");
+        window.location.href = "../Assesment/login.html";
+      };
+
+      //  Load Appointments
+      container.innerHTML = "<p>Loading appointments...</p>";
+
+      fetch(`http://127.0.0.1:8000/appointments/my/${userId}`)
+        .then(res => {
+          if (!res.ok) throw new Error("Server error");
+          return res.json();
+        })
+        .then(data => {
+
+          container.innerHTML = "";
+
+          if (!data || data.length === 0) {
+            container.innerHTML = "<p class='no-data'>No appointments found.</p>";
+            return;
+          }
+
+          data.forEach(app => {
+
+            const statusClass =
+              app.status === "Accepted" ? "accepted" :
+                app.status === "Rejected" ? "rejected" : "pending";
+
+            container.innerHTML += `
+          <div class="appointment-card">
+            <div class="card-left">
+             <h3>${app.provider?.name || "Counselor Not Assigned"}</h3>
+              <p><strong>Service:</strong> ${app.service?.title || "Not Available"}</p>
+              <p><strong>Date:</strong> ${app.date}</p>
+              <p><strong>Time:</strong> ${app.time}</p>
+            </div>
+
+            <div class="card-right">
+              <span class="status ${statusClass}">
+                ${app.status}
+              </span>
+            </div>
+          </div>
+        `;
+          });
+
+        })
+        .catch(error => {
+          console.error(error);
+          container.innerHTML = "<p class='error'>Error loading appointments.</p>";
+        });
+
+    });
+  </script>
+
+
+</body>
+
+</html>

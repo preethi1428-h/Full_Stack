@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="../style.css/contact.css">
+</head>
+
+<body>
+  <header class="header">
+    <div class="title">
+      <p>De Addiction centre,Rehabilitation Centre</p>
+      <div class="title-group">
+        <img src="../asserts/logo original.png" alt="logo" height="60px" width="60">
+        <h1>HEALING <br> HANDS</h1>
+        <img class="img2" src="../asserts/Email logo.png" alt="logo" height="50px" width="50px">
+        <div class="content">
+          <h3>Email</h3>
+          <p>healinghands@gmail.com</p>
+        </div>
+        <img class="img2" src="../asserts/phone logo.png" alt="logo" height="50px" width="50px">
+        <div class="content">
+          <h3>Call Now</h3>
+          <p>6380609753</p>
+        </div>
+
+        <a href="../Assesment/appointment.html" class="btn-primary">APPOINTMENT</a>
+        <div class="login" id="authSection"></div>
+      </div>
+    </div>
+    <div>
+      <nav>
+        <a href="../../index.html">HOME</a>
+        <a href="../Assesment/services.html">SERVICES</a>
+        <a href="../Assesment/my_appointment.html">MY APPOINTMENT</a>
+        <a href="../Assesment/contact.html">CONTACT</a>
+
+      </nav>
+
+    </div>
+    </div>
+  </header>
+  <section class="contact-header">
+    <h1>Contact Us</h1>
+    <p>Have a question or need support? Fill out the form below or reach out to us<br>through one of our channels.</p>
+  </section>
+
+
+  <section class="contact-section">
+    <div class="contact-container">
+
+      <!-- Left side - Info -->
+      <div class="contact-info">
+        <h2>Get in Touch</h2>
+        <p>We are here to help you on your journey. Your questions and feedback are important to us.</p>
+
+        <div class="info-item">
+          <h4>Our Office</h4>
+          <p>123 Serenity Lane, Wellness City, Chennai</p>
+        </div>
+
+        <div class="info-item">
+          <h4>Email</h4>
+          <p>healinghands@gamil.com</p>
+        </div>
+
+        <div class="info-item">
+          <h4>Phone</h4>
+          <p>+1 (555) 123-4567</p>
+        </div>
+      </div>
+
+      <!-- Right side - Form -->
+      <div class="contact-form">
+        <h2>Send a Message</h2>
+        <form>
+          <label>Full Name</label>
+          <input type="text" placeholder="Name" required>
+
+          <label>Email Address</label>
+          <input type="email" placeholder="you@example.com" required>
+
+          <label>Your Message</label>
+          <textarea rows="4" placeholder="How can we help you on your path today?"></textarea>
+
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+  <!-- Footer -->
+  <footer>
+    <div>
+      <h4>Healing hands</h4>
+      <p>Your AI-powered companion on the journey to recovery.</p>
+    </div>
+
+    <div>
+      <h4>Quick Links</h4>
+      <a href="../Assesment/about_us.html">About Us</a><br>
+      <a href="../Assesment/resources.html">Resources</a><br>
+      <a href="../Assesment/contact.html">Contact</a><br>
+      <a href="../Assesment/privacy_policy.html">Privacy Policy</a>
+    </div>
+
+    <div>
+      <h4>Support</h4>
+      <a href="../Assesment/help_center.html">Help Center</a><br>
+      <a href="../Assesment/community_guideliness.html">Community Guidelines</a>
+    </div>
+  </footer>
+  
+  <div class="bottom">
+    &copy;2026 Healing Hands. All Rights Reserved
+  </div>
+
+</body>
+
+<script>
+
+  document.addEventListener("DOMContentLoaded", function () {
+
+    const form = document.querySelector("form");
+
+    // LOGIN / LOGOUT UI
+    const authSection = document.getElementById("authSection");
+    const userData = JSON.parse(localStorage.getItem("loggedInUser"));
+
+    if (userData) {
+
+      authSection.innerHTML = `
+      <button class="logout-btn" onclick="logout()">LOGOUT</button>
+    `;
+
+    } else {
+
+      authSection.innerHTML = `
+      <a href="../Assesment/login.html" class="login-btn">LOGIN</a>
+    `;
+
+    }
+
+    window.logout = function () {
+
+      localStorage.removeItem("loggedInUser");
+
+      alert("Logged out successfully!");
+
+      window.location.reload();
+
+    };
+
+
+    // CONTACT FORM SUBMIT
+    form.addEventListener("submit", async function (e) {
+
+      e.preventDefault();
+
+      const name = document.querySelector("input[type='text']").value.trim();
+      const email = document.querySelector("input[type='email']").value.trim();
+      const message = document.querySelector("textarea").value.trim();
+
+      let valid = true;
+
+      // NAME VALIDATION (min 2 letters)
+      const namePattern = /^[A-Za-z ]{2,}$/;
+
+      if (!name) {
+
+        alert("Name is required");
+        valid = false;
+
+      }
+      else if (!namePattern.test(name)) {
+
+        alert("Name must contain at least 2 letters and only alphabets");
+        valid = false;
+
+      }
+
+
+      // EMAIL VALIDATION
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!email) {
+
+        alert("Email is required");
+        valid = false;
+
+      }
+      else if (!emailPattern.test(email)) {
+
+        alert("Enter valid email address");
+        valid = false;
+
+      }
+
+
+      // MESSAGE VALIDATION (min 10 characters)
+      if (!message) {
+
+        alert("Message cannot be empty");
+        valid = false;
+
+      }
+      else if (message.length < 10) {
+
+        alert("Message must contain at least 10 characters");
+        valid = false;
+
+      }
+
+      if (!valid) return;
+
+
+      // SEND DATA TO BACKEND
+      try {
+
+        const response = await fetch("http://127.0.0.1:8000/contact/", {
+
+          method: "POST",
+
+          headers: {
+            "Content-Type": "application/json"
+          },
+
+          body: JSON.stringify({
+            name: name,
+            email: email,
+            message: message
+          })
+
+        });
+
+        if (!response.ok) {
+
+          alert("Error sending message");
+          return;
+
+        }
+
+        alert("Message sent successfully!");
+
+        form.reset();
+
+      }
+      catch (error) {
+
+        alert("Server error. Check backend.");
+
+      }
+
+    });
+
+  });
+
+</script>
+
+</html>

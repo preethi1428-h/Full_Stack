@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Healing Hands - Register</title>
+    <link rel="stylesheet" href="../style.css/register.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-box">
+            <h1>Healing Hands</h1>
+            <p class="subtitle">Create Your Account</p>
+
+            <form id="signupForm">
+                <div class="input-group">
+                    <label>Name</label>
+                    <input type="text" id="name" placeholder="Enter your full name" required>
+                    <span class="error" id="nameError"></span>
+                </div>
+
+                <div class="input-group">
+                    <label>Phone</label>
+                    <input type="tel" id="phone" placeholder="Enter 10-digit phone number" required>
+                    <span class="error" id="phoneError"></span>
+                </div>
+
+                <div class="input-group">
+                    <label>Email</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                    <span class="error" id="emailError"></span>
+                </div>
+
+                <div class="input-group password-group">
+                    <label>Password</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="password" placeholder="Enter password (min 8 chars)" required>
+                        <i class="eye-icon" id="togglePassword" style="display: inline-block;"></i>
+                    </div>
+                    <span class="error" id="passwordError"></span>
+                </div>
+
+                <button type="submit" class="btn">Register</button>
+                <p class="login-text">
+                    Already have an account? <a href="./login.html">Login</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+
+        const togglePassword = document.getElementById("togglePassword");
+        const passwordInput = document.getElementById("password");
+
+        togglePassword.className = "eye-icon fas fa-eye";
+
+        togglePassword.addEventListener("click", function () {
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                togglePassword.classList.remove("fa-eye");
+                togglePassword.classList.add("fa-eye-slash");
+            } else {
+                passwordInput.type = "password";
+                togglePassword.classList.remove("fa-eye-slash");
+                togglePassword.classList.add("fa-eye");
+            }
+        });
+
+        document.getElementById("signupForm").addEventListener("submit", async function (e) {
+
+            e.preventDefault();
+
+            const fullname = document.getElementById("name").value.trim();
+            const phone = document.getElementById("phone").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value.trim();
+
+            const nameError = document.getElementById("nameError");
+            const phoneError = document.getElementById("phoneError");
+            const emailError = document.getElementById("emailError");
+            const passwordError = document.getElementById("passwordError");
+
+            [nameError, phoneError, emailError, passwordError].forEach(el => el.textContent = "");
+
+            let valid = true;
+
+            if (fullname.length < 2) {
+                nameError.textContent = "Name must be at least 2 characters";
+                valid = false;
+            }
+
+            const phonePattern = /^[6-9]\d{9}$/;
+            if (!phonePattern.test(phone)) {
+                phoneError.textContent = "Enter valid 10-digit phone number";
+                valid = false;
+            }
+
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                emailError.textContent = "Enter valid email address";
+                valid = false;
+            }
+
+            if (password.length < 8) {
+                passwordError.textContent = "Password must be at least 8 characters";
+                valid = false;
+            }
+
+            if (!valid) return;
+
+            try {
+                const response = await fetch("http://127.0.0.1:8000/auth/register", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        name: fullname,
+                        phone: phone,
+                        email: email,
+                        password: password
+                    })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    alert("Registration Successful ");
+                    window.location.href = "./login.html";
+                } else {
+                    alert(data.detail || "Registration failed");
+                }
+
+            } catch (error) {
+                console.error(error);
+                alert("Backend server OFF ");
+            }
+
+        });
+
+    </script>
+
+
+    <style>
+        .error {
+            color: #f56565;
+            font-size: 0.85em;
+            display: block;
+            margin-top: 4px;
+        }
+
+        .input-group input:invalid {
+            border-color: #000000;
+        }
+    </style>
+</body>
+
+</html>

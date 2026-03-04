@@ -1,0 +1,367 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+body {
+  margin-top: 100px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.title > p {
+  padding: 10px 90px;
+  border-bottom: 1px solid black;
+}
+.content > p {
+  color: red;
+  font-family: sans-serif;
+}
+.title > .title-group > img {
+  border-radius: 50%;
+}
+.title > .title-group {
+  background-color: #ffffff;
+  padding: 10px;
+  padding-left: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid black;
+  box-shadow: 0px 0px 5px;
+}
+.title-group {
+  display: flex;
+}
+.title-group > h1 {
+  font-family: "Times New Roman", Times, serif;
+  font-size: large;
+  padding-left: 15px;
+  padding-top: 6px;
+}
+.img2 {
+  margin-left: 180px;
+}
+.content {
+  padding-top: 5px;
+  padding-left: 20px;
+}
+nav {
+  background-color: #2bbec1;
+  justify-content: flex-start;
+  display: flex;
+  padding: 15px;
+}
+nav > a {
+  padding-left: 100px;
+  text-decoration: none;
+  font-size: large;
+  color: white;
+  transition: 0.3s;
+}
+a:hover {
+  color: black;
+}
+#imp {
+  display: flex;
+  justify-content: flex-end;
+}
+.login > a {
+  text-decoration: none;
+  color: white;
+  transition: 0.3s;
+}
+.login > a:hover {
+  color: black;
+}
+
+/* button section */
+
+.btn-primary {
+  margin-left: 220px;
+  display: inline-flex;
+  justify-content: center;
+  padding: 8px 15px;
+  background-color: #2bbec1;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: 0.3s ease;
+  margin-top: 20px;
+}
+
+.btn-primary:hover {
+  background-color: #249c9a;
+}
+.btn-primary>a:hover{
+  color: black;
+}
+
+.login-btn,
+.logout-btn {
+  display: inline-flex;
+  justify-content: center;
+  background-color: #2bbec1;
+  color: white;
+  border: none;
+  padding: 11px 15px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.3s;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.logout-btn {
+  background-color: #e74c3c;
+}
+
+.login-btn:hover {
+  background-color: #249c9a;
+}
+
+.logout-btn:hover {
+  background-color: #c0392b;
+}
+
+/* PRIVACY SECTION */
+.privacy-section {
+  height: 100vh;
+  background-color: #d9ffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+/* LOCK ICON */
+.lock-circle {
+  background-color: #aef1f1;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  margin-bottom: 25px;
+}
+
+/* TEXT */
+.privacy-section h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.desc {
+  max-width: 700px;
+  font-size: 18px;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Main container */
+.container {
+  width: 75%;
+  margin: 40px auto;
+}
+
+/* Common card style */
+.card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 40px;
+  box-shadow: 2px 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Headings */
+.card h1 {
+  margin-bottom: 15px;
+  color: #0b2b2e;
+}
+
+.card h2 {
+  margin: 0;
+  color: #0b2b2e;
+}
+
+/* Paragraph */
+.card p {
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Info card header */
+.info-header {
+  background-color: #dffefe;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+/* Icon */
+.icon {
+  font-size: 30px;
+  margin-right: 10px;
+}
+
+/* List */
+.info-card ul {
+  padding: 20px 40px;
+}
+
+.info-card li {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* 
+.card {
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 40px;
+    box-shadow: 0px 8px 15px rgba(0,0,0,0.1);
+} */
+
+.info-header {
+  background-color: #dffefe;
+  padding: 20px;
+  border-radius: 15px 15px 0 0;
+}
+
+.icon {
+  font-size: 28px;
+  margin-right: 10px;
+}
+
+.card h2 {
+  margin: 0;
+  color: #0b2b2e;
+}
+
+.info-card ul {
+  padding: 20px 40px;
+}
+
+.info-card li {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* Contact section */
+.contact-section {
+  background-color: #dffefe;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.contact-section h1 {
+  color: #0b2b2e;
+  margin-bottom: 15px;
+}
+
+.contact-text {
+  color: #333;
+  margin-bottom: 40px;
+}
+
+/* Cards container */
+.contact-cards {
+  width: 100%;
+}
+
+/* Individual card */
+.contact-card {
+  background-color: #ffffff;
+  width: 260px;
+  padding: 30px 20px;
+  margin: 15px;
+  display: inline-block;
+  vertical-align: top;
+  border-radius: 20px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Icon */
+.icon {
+  width: 60px;
+  height: 60px;
+  background-color: #dffefe;
+  border-radius: 50%;
+  line-height: 60px;
+  font-size: 26px;
+  margin: 0 auto 15px auto;
+}
+
+/* Card text */
+.contact-card h3 {
+  margin-bottom: 10px;
+  color: #0b2b2e;
+}
+
+.contact-card p {
+  color: #333;
+}
+
+.highlight {
+  color: #14a6a6;
+}
+
+/* Footer */
+footer {
+  background-color: #0c3b52;
+  color: white;
+  padding: 40px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  text-align: left;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+footer div {
+  max-width: 250px;
+  margin: 10px;
+}
+
+footer h4 {
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+footer p,
+footer a {
+  color: #dcdcdc;
+  font-size: 14px;
+  line-height: 1.6;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+  color: #6ee7f9;
+}
+
+.bottom {
+  text-align: center;
+  background-color: #0c3b52;
+  padding: 15px;
+  color: #ccc;
+  border-top: 1px solid #999;
+  font-size: 13px;
+}

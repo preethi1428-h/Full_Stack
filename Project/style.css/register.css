@@ -1,0 +1,160 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background: #e9f4ff;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 400px;
+}
+
+.form-box {
+  background: white;
+  padding: 35px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding: 8px;
+  padding-right: 35px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 0;
+}
+
+.password-wrapper .eye-icon {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  user-select: none;
+  color: #666;
+}
+#errorMsg{
+  color: red;
+  font-size: small;
+}
+
+h1 {
+  color: #2bbec1;
+}
+
+.subtitle {
+  margin-top: 5px;
+  color: gray;
+  margin-bottom: 20px;
+}
+
+.input-group {
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  margin-top: 5px;
+}
+
+.password-group .password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding: 10px;
+  padding-right: 40px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  margin: 0;
+}
+
+.password-wrapper .eye-icon {
+  position: absolute;
+  right: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  user-select: none;
+}
+
+.btn {
+  /* width:100%; */
+  padding: 10px;
+  border: none;
+  padding-left: 140px;
+  padding-right: 150px;
+  background: #2bbec1;
+  text-decoration: none;
+  color: white;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 30px;
+}
+.btn a {
+  margin-top: 20px;
+}
+
+.btn:hover {
+  background: #57e9f0;
+}
+
+.login-text {
+  margin-top: 15px;
+}
+
+.login-text a {
+  color: #2bbec1;
+  text-decoration: none;
+  font-weight: bold;
+}
+@media (max-width: 768px) {
+  .auth-card {
+    padding: 1.5rem;
+  }
+
+  header {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  nav a {
+    margin: 0 10px;
+  }
+
+  th,
+  td {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+}

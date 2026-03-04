@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../style.css/services.css">
+</head>
+
+<body>
+  <header class="header">
+    <div class="title">
+      <p>De Addiction centre,Rehabilitation Centre</p>
+      <div class="title-group">
+        <img src="../asserts/logo original.png" alt="logo" height="60px" width="60">
+        <h1>HEALING <br> HANDS</h1>
+        <img class="img2" src="../asserts/Email logo.png" alt="logo" height="50px" width="50px">
+        <div class="content">
+          <h3>Email</h3>
+          <p>healinghands@gmail.com</p>
+        </div>
+        <img class="img2" src="../asserts/phone logo.png" alt="logo" height="50px" width="50px">
+        <div class="content">
+          <h3>Call Now</h3>
+          <p>6380609753</p>
+        </div>
+        <a href="../Assesment/appointment.html" class="btn-primary">APPOINTMENT</a>
+        <div class="login" id="authSection"></div>
+          
+        </div>
+      </div>
+      <div>
+        <nav>
+          <a href="../../index.html">HOME</a>
+          <a href="../Assesment/services.html">SERVICES</a>
+          <a href="../Assesment/my_appointment.html">MY APPOINTMENT</a>
+          <a href="../Assesment/contact.html">CONTACT</a>
+
+        </nav>
+
+      </div>
+    </div>
+  </header>
+  <main>
+    <section>
+      <div class="banner">
+        <img src="../asserts/photorealistic-pills-tablets-different-colors-with-text-stop-drugs (1).jpg" alt="Banner">
+      </div>
+
+      <div class="foundation">
+        <div class="left">
+          <h3>foundation details</h3>
+          <p>
+            Healing hands Foundation is located in Chennai, De Addiction Centre in Chennai,
+            Rehabilitation Centre in Chennai for all alcoholics. Our team members are skilled
+            and professionals of each patients. <br><br>
+            We provide aftercare supports for after De Addiction Centre in Chennai,
+            Rehabilitation Centre in Chennai. Healing hands Foundation focused on physical and
+            psychological treatment. We take care of each persons put an additional attention.
+          </p>
+        </div>
+
+        <div class="right">
+          <img src="../asserts/logo original.png" alt="Logo">
+          <h3 class="h3">Healing Hands</h3>
+          <p>
+            Healing hands Foundation's team is made up of alcoholics and drug addicts who have
+            gone through the agony of addiction to recovery of peaceful life.
+          </p>
+        </div>
+
+      </div>
+      <div class="btn-container">
+        <button class="btn" onclick="changeContent('alcohol')">Alcohol</button>
+        <button class="btn" onclick="changeContent('tablet')">Tablet</button>
+        <button class="btn" onclick="changeContent('injection')">Injection</button>
+      </div>
+
+      <div class="left1">
+        <img id="galleryImage" src="../asserts/alcohol.img.service.jpg" alt="Service Image" height="500" width="350">
+
+        <div class="right1" id="right">
+          <a class="read-btn" href="./appointment.html">Appointment</a>
+
+        </div>
+
+        <script>
+          const contentData = {
+            alcohol: {
+              image: '../asserts/alcohol.img.service.jpg',
+              content: `
+        <h3>Alcohol</h3>
+        <h2>Common Symptoms</h2>
+        <p class="p">Strong cravings for alcohol</p>
+        <p class="p">Inability to limit drinking</p>
+        <p class="p">Developing a tolerance</p>
+        <p class="p">Withdrawal symptoms when not drinking</p>
+        <br>
+        <h2>Long-term Effects</h2>
+        <p class="p">Liver disease</p>
+        <p class="p">Heart problems</p>
+        <p class="p">Damaged relationships</p>
+        <p class="p">Financial instability</p>
+      `
+            },
+
+            tablet: {
+              image: '../asserts/tablet_s.1.jpg',
+              content: `
+        <h3>Tablet</h3>
+        <h2>Common Symptoms</h2>
+        <p class="p">Nausea, stomach upset, diarrhea, or constipation.</p>
+        <p class="p">Dizziness, headache, or drowsiness.</p>
+        <p class="p"> Dry mouth, skin rash, or flushing.</p>
+        <p class="p"> Fatigue, mood changes, or weight changes. </p>
+        <br>
+        <h2>Long-term Effects</h2>
+        <p class="p"> Risk of kidney, liver, and gastrointestinal damage.</p>
+        <p class="p"> Extreme drowsiness, memory problems, and dependency. </p>
+        <p class="p">Heart problems, high blood pressure, and seizures.</p>
+        <p class="p">High risk of addiction, respiratory issues, and overdose.</p>
+      `
+            },
+
+            injection: {
+              image: '../asserts/injection_s.1.jpg',
+              content: `
+        <h3>Injection</h3>
+        <h2>Common Symptoms</h2>
+        <p class="p">Rapid or irregular heart rate, high blood pressure.</p>
+        <p class="p">Confusion, headache, dizziness, memory loss.</p>
+        <p class="p">Slowed or, in cases of severe distress, stopped breathing.</p>
+        <p class="p">Nausea, vomiting, constipation. </p>
+        <br>
+        <h2>Long-term Effects</h2>
+        <p class="p">Track marks (scars), bruising, swelling, redness, and itching at the site.</p>
+        <p class="p">Abscesses (painful, pus-filled lumps), skin infections (cellulitis), and systemic infection (sepsis).</p>
+        <p class="p">Increased risk of suicide, depression, and anxiety.</p>
+        <p class="p">Chronic damage to the liver, kidneys, and lungs.</p>
+      `
+            }
+          };
+
+          function changeContent(type) {
+            const data = contentData[type];
+            document.getElementById('galleryImage').src = data.image;
+            document.getElementById("right").innerHTML = data.content + '<a class="read-btn" href="./appointment.html">Appointment</a>';
+          }
+
+
+          changeContent('alcohol');
+
+        </script>
+
+      </div>
+    </section>
+    <footer>
+      <div>
+        <h4>Healing hands</h4>
+        <p>Your AI-powered companion on the journey to recovery.</p>
+      </div>
+
+      <div>
+        <h4>Quick Links</h4>
+        <a href="../Assesment/about_us.html">About Us</a><br>
+        <a href="../Assesment/resources.html">Resources</a><br>
+        <a href="../Assesment/contact.html">Contact</a><br>
+        <a href="../Assesment/privacy_policy.html">Privacy Policy</a>
+      </div>
+
+      <div>
+        <h4>Support</h4>
+        <a href="../Assesment/help_center.html">Help Center</a><br>
+        <a href="../Assesment/community_guideliness.html">Community Guidelines</a>
+      </div>
+    </footer>
+
+    <div class="bottom">
+      &copy;2026 Healing Hands. All Rights Reserved
+    </div>
+
+  </main>
+</body>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+
+    const authSection = document.getElementById("authSection");
+    const userData = JSON.parse(localStorage.getItem("loggedInUser"));
+
+    if (userData) {
+      authSection.innerHTML = `
+      <button class="logout-btn" onclick="logout()">LOGOUT</button>
+    `;
+    } else {
+      authSection.innerHTML = `
+      <a href="../Assesment/login.html" class="login-btn">LOGIN</a>
+    `;
+    }
+
+    window.logout = function () {
+      localStorage.removeItem("loggedInUser");
+      alert("Logged out successfully!");
+      window.location.reload();
+    };
+
+  });
+</script>
+
+</html>

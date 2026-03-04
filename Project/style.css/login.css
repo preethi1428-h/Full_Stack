@@ -1,0 +1,141 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #e6f9fc;
+  margin: 0;
+  padding: 0;
+}
+
+.login-container {
+  width: 350px;
+  margin: 100px auto;
+  margin-top: 250px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  text-align: center;
+}
+
+h2 {
+  color: #2bbec1;
+  margin-bottom: 25px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+.password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding: 8px;
+  padding-right: 35px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 0;
+}
+
+.password-wrapper .eye-icon {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  user-select: none;
+  color: #666;
+}
+#errorMsg{
+  color: red;
+  font-size: small;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding: 10px;
+  padding-right: 40px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 0;
+}
+
+.password-wrapper .eye-icon {
+  position: absolute;
+  right: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  user-select: none;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border-color: #2bbec1;
+  outline: none;
+}
+
+.btn {
+  background-color: #2bbec1;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  width: 100%;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+button > a {
+  text-decoration: none;
+  color: white;
+}
+.btn:hover {
+  background-color: #1ca8a7;
+}
+
+.link {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.link a {
+  color: #2dc4c3;
+  text-decoration: none;
+}
+
+.link a:hover {
+  text-decoration: underline;
+}
+
+.counselor-lnk > a {
+  text-decoration: none;
+  color: #2dc4c3;
+}
+.counselor-lnk {
+  padding-top: 10px;
+}
+.counselor-lnk :hover {
+  color: #1ca8a7;
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Community Guidelines</title>
+  <link rel="stylesheet" href="../style.css/community_guidelines.css" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="title">
+      <p>De Addiction centre,Rehabilitation Centre</p>
+      <div class="title-group">
+        <img src="../asserts/logo original.png" alt="logo" height="60px" width="60">
+        <h1>HEALING <br> HANDS</h1>
+        <img class="img2" src="../asserts/Email logo.png" alt="logo" height="50px" width="50px">
+        <div class="content">
+          <h3>Email</h3>
+          <p>healinghands@gmail.com</p>
+        </div>
+        <img class="img2" src="../asserts/phone logo.png" alt="logo" height="50px" width="50px">
+        <div class="content">
+          <h3>Call Now</h3>
+          <p>6380609753</p>
+        </div>
+
+        <a href="../Assesment/appointment.html" class="btn-primary">APPOINTMENT</a>
+        <div class="login" id="authSection"></div>
+        
+      </div>
+    </div>
+    <div>
+      <nav>
+        <a href="../../index.html">HOME</a>
+        <a href="../Assesment/services.html">SERVICES</a>
+        <a href="../Assesment/my_appointment.html">MY APPOINTMENT</a>
+        <a href="../Assesment/contact.html">CONTACT</a>
+
+      </nav>
+
+    </div>
+    </div>
+  </header>
+
+  <section class="guidelines-section">
+    <h1>Community Guidelines</h1>
+    <p class="subtitle">
+      Our commitment to creating a safe, supportive, and respectful space for everyone.
+    </p>
+
+    <div class="guidelines-card">
+      <p>
+        While SerenePath does not currently have interactive community features, we are
+        building with the future in mind. These guidelines will apply to any future forums,
+        groups, or sharing features to ensure our community remains a sanctuary for healing
+        and growth. By using SerenePath, you agree to uphold these principles in all potential
+        future interactions.
+      </p>
+
+      <h3>1. Be Kind and Courteous</h3>
+      <p>
+        We're all in this together to create a welcoming environment. Let's treat everyone with
+        respect. Healthy debates are natural, but kindness is required.
+      </p>
+
+      <h3>2. No Hate Speech or Bullying</h3>
+      <p>
+        Make sure everyone feels safe. Bullying of any kind isn't allowed, and degrading
+        comments about things like race, religion, culture, sexual orientation, gender or identity
+        will not be tolerated.
+      </p>
+
+      <h3>3. Respect Privacy</h3>
+      <p>
+        Being part of this community requires mutual trust. Authentic, expressive discussions
+        make groups great, but may also be sensitive and private. What’s shared in the group
+        should stay in the group.
+      </p>
+
+      <h3>4. No Promotions or Spam</h3>
+      <p>
+        Give more than you take to this group. Self-promotion, spam, and irrelevant links are not
+        allowed.
+      </p>
+      <h3>5. No Promotions or Spam</h3>
+      <p>Self-promotion, spam and irrelevant links aren't allowed. This space is for support, not for
+        marketing or selling goods and services.</p>
+
+      <p class="below"> We reserve the right to remove content and users that violate these guidelines. Thank you for
+        helping us build a compassionate and trustworthy community.</p>
+    </div>
+  </section>
+  <footer>
+    <div>
+      <h4>Healing hands</h4>
+      <p>Your AI-powered companion on the journey to recovery.</p>
+    </div>
+
+    <div>
+      <h4>Quick Links</h4>
+      <a href="../Assesment/about_us.html">About Us</a><br>
+      <a href="../Assesment/resources.html">Resources</a><br>
+      <a href="../Assesment/contact.html">Contact</a><br>
+      <a href="../Assesment/privacy_policy.html">Privacy Policy</a>
+    </div>
+
+    <div>
+      <h4>Support</h4>
+      <a href="../Assesment/help_center.html">Help Center</a><br>
+      <a href="../Assesment/community_guideliness.html">Community Guidelines</a>
+    </div>
+  </footer>
+
+  <div class="bottom">
+    &copy;2026 Healing Hands. All Rights Reserved
+  </div>
+
+</body>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+
+    const authSection = document.getElementById("authSection");
+    const userData = JSON.parse(localStorage.getItem("loggedInUser"));
+
+    if (userData) {
+      authSection.innerHTML = `
+      <button class="logout-btn" onclick="logout()">LOGOUT</button>
+    `;
+    } else {
+      authSection.innerHTML = `
+      <a href="../Assesment/login.html" class="login-btn">LOGIN</a>
+    `;
+    }
+
+    window.logout = function () {
+      localStorage.removeItem("loggedInUser");
+      alert("Logged out successfully!");
+      window.location.reload();
+    };
+
+  });
+</script>
+
+</html>

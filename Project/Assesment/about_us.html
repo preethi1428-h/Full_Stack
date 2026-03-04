@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Healing Hand</title>
+  <link rel="stylesheet" href="../style.css/about_us.css">
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <div class="title">
+      <p>De Addiction Centre, Rehabilitation Centre</p>
+      <div class="title-group">
+        <img src="../asserts/logo original.png" alt="logo" height="60px" width="60">
+        <h1>HEALING <br> HANDS</h1>
+
+        <img class="img2" src="../asserts/Email logo.png" alt="email" height="50px" width="50px">
+        <div class="content">
+          <h3>Email</h3>
+          <p>healinghands@gmail.com</p>
+        </div>
+
+        <img class="img2" src="../asserts/phone logo.png" alt="phone" height="50px" width="50px">
+        <div class="content">
+          <h3>Call Now</h3>
+          <p>6380609753</p>
+        </div>
+
+        <a href="../Assesment/appointment.html" class="btn-primary">APPOINTMENT</a>
+        <div id="authSection"></div>
+      </div>
+    </div>
+
+    <nav>
+      <a href="../../index.html">HOME</a>
+      <a href="../Assesment/services.html">SERVICES</a>
+      <a href="../Assesment/my_appointment.html">MY APPOINTMENT</a>
+      <a href="../Assesment/contact.html">CONTACT</a>
+    </nav>
+  </header>
+
+  <!-- About Section -->
+  <section class="about-section">
+    <h1>About Healing Hands</h1>
+    <p class="subtitle">
+      Empowering individuals on their journey to recovery through personalized, compassionate technology.
+    </p>
+
+    <div class="mission">
+      <h2>Our Mission</h2>
+      <p>
+        Our mission is to provide an accessible, supportive, and non-judgmental tool that empowers individuals
+        to take control of their recovery journey. We believe that technology, when thoughtfully applied,
+        can be a powerful ally in building healthier habits, fostering self-awareness, and providing consistent
+        encouragement. Healing Hands is designed to be a private, personal companion that helps you structure your
+        day with positive, recovery-focused activities.
+      </p>
+    </div>
+
+    <div class="vision">
+      <h2>Our Vision</h2>
+      <p>
+        We envision a world where everyone has access to the support they need to overcome life's challenges.
+        Our goal is for Healing Hands to be more than just a tool; we aim to build a platform that reduces the
+        stigma associated with addiction and mental health, promotes open conversation, and connects individuals
+        with resources that can make a real difference. We are committed to continuous improvement, guided by
+        user feedback and the latest research in behavioral health.
+      </p>
+    </div>
+  </section>
+
+  <!-- Values Section -->
+  <section class="values-section">
+    <h2>Our Values</h2>
+    <ul>
+      <li><strong>Empathy:</strong> We approach our work with compassion and a deep understanding of the challenges our
+        users face.</li>
+      <li><strong>Privacy:</strong> Your journey is personal. We are committed to protecting your data and ensuring your
+        experience is secure and confidential.</li>
+      <li><strong>Empowerment:</strong> We provide tools, not directives. Our goal is to empower you to make choices
+        that align with your personal recovery goals.</li>
+      <li><strong>Responsibility:</strong> We recognize the sensitivity of our work and are committed to ethical
+        practices, transparency, and creating a tool that is a responsible actor in the digital health space.</li>
+    </ul>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div>
+      <h4>Healing Hands</h4>
+      <p>Your AI-powered companion on the journey to recovery.</p>
+    </div>
+
+    <div>
+      <h4>Quick Links</h4>
+      <a href="../Assesment/about_us.html">About Us</a><br>
+      <a href="../Assesment/resources.html">Resources</a><br>
+      <a href="../Assesment/contact.html">Contact</a><br>
+      <a href="../Assesment/privacy_policy.html">Privacy Policy</a>
+    </div>
+
+    <div>
+      <h4>Support</h4>
+      <a href="../Assesment/help_center.html">Help Center</a><br>
+      <a href="../Assesment/community_guideliness.html">Community Guidelines</a>
+    </div>
+  </footer>
+
+  <div class="bottom">
+    &copy;2026 Healing Hands. All Rights Reserved.
+  </div>
+</body>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+
+    const authSection = document.getElementById("authSection");
+    const userData = JSON.parse(localStorage.getItem("loggedInUser"));
+
+    if (userData) {
+      authSection.innerHTML = `
+      <button class="logout-btn" onclick="logout()">LOGOUT</button>
+    `;
+    } else {
+      authSection.innerHTML = `
+      <a href="../Assesment/login.html" class="login-btn">LOGIN</a>
+    `;
+    }
+
+    window.logout = function () {
+      localStorage.removeItem("loggedInUser");
+      alert("Logged out successfully!");
+      window.location.reload();
+    };
+
+  });
+</script>
+
+</html>

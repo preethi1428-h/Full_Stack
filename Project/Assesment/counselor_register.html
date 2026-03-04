@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Counselor Registration</title>
+    <link rel="stylesheet" href="../style.css/counsoler_register.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="navbar">
+        <h2 class="logo">HEALING HANDS</h2>
+        <div class="nav-links">
+            <a href="../Assesment/counselor-login.html">Login</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <h2>Counselor Registration</h2>
+
+            <form id="registerForm">
+
+                <label>Name</label>
+                <input type="text" id="name" placeholder="Enter your name">
+                <small id="nameError" style="color: red;"></small>
+
+
+                <label>Email Address</label>
+                <input type="email" id="email" placeholder="Enter your email">
+                <small id="emailError" style="color:red;"></small>
+
+                <label>Specialization</label>
+                <select id="specialization">
+                    <option value="">Select Specialization</option>
+                    <option value="1">Alcohol Addiction</option>
+                    <option value="2">Tablet Addiction</option>
+                    <option value="3">Injection Addiction</option>
+                </select>
+                <small id="specError" style="color:red;"></small>
+
+                <label>Password</label>
+                <div class="password-wrapper">
+                    <input type="password" id="password" placeholder="Create password">
+                    <i class="fas fa-eye eye-icon" id="togglePassword"></i>
+                </div>
+                <small id="passwordError" style="color:red;"></small>
+
+                <label>Confirm Password</label>
+                <div class="password-wrapper">
+                    <input type="password" id="confirmPassword" placeholder="Confirm password">
+                    <i class="fas fa-eye eye-icon" id="toggleConfirmPassword"></i>
+                </div>
+                <small id="confirmError" style="color:red;"></small>
+
+                <button type="submit">Register</button>
+            </form>
+
+            <p class="login-text">
+                Already have an account?
+                <a href="../Assesment/counselor-login.html">Login here</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+
+        document.getElementById("registerForm").addEventListener("submit", function (e) {
+
+            e.preventDefault();
+
+            let name = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let specialization = document.getElementById("specialization").value;
+            let password = document.getElementById("password").value.trim();
+            let confirmPassword = document.getElementById("confirmPassword").value.trim();
+
+
+            let nameError = document.getElementById("nameError");
+            let emailError = document.getElementById("emailError");
+            let specError = document.getElementById("specError");
+            let passwordError = document.getElementById("passwordError");
+            let confirmError = document.getElementById("confirmError");
+
+            // Clear previous errors
+            nameError.innerText = "";
+            emailError.innerText = "";
+            specError.innerText = "";
+            passwordError.innerText = "";
+            confirmError.innerText = "";
+
+            let valid = true;
+
+            // Empty Form Check
+            if (name === "" && email === "" && specialization === "" && password === "" && confirmPassword === "") {
+                alert("Please fill all the fields");
+                return;
+            }
+
+            // Name validation
+            const namePattern = /^[A-Za-z ]+$/;
+
+            if (name === "") {
+                nameError.innerText = "Name is required";
+                valid = false;
+            }
+            else if (name.length < 2) {
+                nameError.innerText = "Name must be at least 2 characters";
+                valid = false;
+            }
+            else if (!namePattern.test(name)) {
+                nameError.innerText = "Only letters allowed";
+                valid = false;
+            }
+
+            // Email validation
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (email === "") {
+                emailError.innerText = "Email is required";
+                valid = false;
+            }
+            else if (!emailPattern.test(email)) {
+                emailError.innerText = "Enter valid email";
+                valid = false;
+            }
+
+            //  Specialization validation
+            if (specialization === "") {
+                specError.innerText = "Select specialization";
+                valid = false;
+            }
+
+            //  Password validation
+            if (password === "") {
+                passwordError.innerText = "Password is required";
+                valid = false;
+            }
+            else if (password.length < 8) {
+                passwordError.innerText = "Password must be at least 8 characters";
+                valid = false;
+            }
+
+            //  Confirm password validation
+            if (confirmPassword === "") {
+                confirmError.innerText = "Confirm password required";
+                valid = false;
+            }
+            else if (password !== confirmPassword) {
+                confirmError.innerText = "Passwords do not match";
+                valid = false;
+            }
+
+            if (!valid) return;
+
+            //  Backend Connection
+            //  specialization itself is service_id
+            let serviceId = parseInt(specialization);
+
+            fetch("http://127.0.0.1:8000/provider/register", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    name: name,
+                    email: email,
+                    specialization: specialization,
+                    password: password,
+                    service_id: serviceId
+                })
+            })
+                .then(res => {
+                    if (!res.ok) {
+                        return res.json().then(err => { throw err; });
+                    }
+                    return res.json();
+                })
+                .then(data => {
+                    alert("Registration Successful ");
+                    window.location.href = "./counselor-login.html";
+                })
+                .catch(error => {
+                    alert(error.detail || "Registration failed");
+                    console.error(error);
+                });
+
+        });
+
+
+        // fetch("http://127.0.0.1:8000/provider/register", {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json"
+        //     },
+        //     body: JSON.stringify({
+        //         name: name,
+        //         email: email,
+        //         specialization: specialization,
+        //         password: password,
+        //         service_id: parseInt(serviceId)
+        //     })
+        // })
+        //     .then(res => {
+        //         if (!res.ok) {
+        //             return res.json().then(err => { throw err; });
+        //         }
+        //         return res.json();
+        //     })
+        //     .then(data => {
+        //         alert("Registration Successful ");
+        //         window.location.href = "../Assesment/counselor-login.html";
+        //     })
+        //     .catch(error => {
+        //         alert(error.detail || "Registration failed");
+        //         console.error(error);
+        //     });
+
+        // });
+
+
+        //  Password Toggle
+        const togglePassword = document.getElementById("togglePassword");
+        const passwordInput = document.getElementById("password");
+
+        togglePassword.addEventListener("click", function () {
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                togglePassword.classList.remove("fa-eye");
+                togglePassword.classList.add("fa-eye-slash");
+            } else {
+                passwordInput.type = "password";
+                togglePassword.classList.remove("fa-eye-slash");
+                togglePassword.classList.add("fa-eye");
+            }
+        });
+
+        //  Confirm Password Toggle
+        const toggleConfirmPassword = document.getElementById("toggleConfirmPassword");
+        const confirmPasswordInput = document.getElementById("confirmPassword");
+
+        toggleConfirmPassword.addEventListener("click", function () {
+            if (confirmPasswordInput.type === "password") {
+                confirmPasswordInput.type = "text";
+                toggleConfirmPassword.classList.remove("fa-eye");
+                toggleConfirmPassword.classList.add("fa-eye-slash");
+            } else {
+                confirmPasswordInput.type = "password";
+                toggleConfirmPassword.classList.remove("fa-eye-slash");
+                toggleConfirmPassword.classList.add("fa-eye");
+            }
+        });
+
+    </script>
+
+
+</body>
+
+</html>

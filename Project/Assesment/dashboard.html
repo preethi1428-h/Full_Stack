@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counselor Dashboard - Healing Hands</title>
+    <link rel="stylesheet" href="../style.css/dashboard.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <h2 class="logo">🩺 HEALING HANDS</h2>
+        <button class="logout" onclick="window.location.href='../Assesment/counselor-login.html'">
+            Logout
+        </button>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Welcome Card -->
+        <div class="welcome-card">
+            <h2>Welcome, <span>Dr. Sarah Smith</span></h2>
+            <p>Addiction Specialist: Alcohol De-Addiction</p>
+        </div>
+
+        <!-- Appointments Table -->
+        <div class="table-card">
+            <h3> Upcoming Patient Appointments</h3>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Patient Name</th>
+                            <th>Phone</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Service</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="appointmentsTable">
+                        <!-- Data loaded dynamically -->
+                    </tbody>
+                </table>
+            </div>
+            <p class="summary" id="summary">Loading appointments...</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>© 2026 Healing Hands. Counselor Portal. All rights reserved.</footer>
+
+    <script>
+
+        let appointments = [];
+
+        // LOGIN CHECK
+        const providerId = localStorage.getItem("provider_id");
+        const providerName = localStorage.getItem("provider_name");
+
+        if (!providerId) {
+            alert("Please login first!");
+            window.location.href = "../Assesment/counselor-login.html";
+        }
+
+        // SHOW PROVIDER NAME
+        document.querySelector(".welcome-card h2 span").textContent =
+            providerName || "Counselor";
+
+
+        // LOAD APPOINTMENTS FOR THIS PROVIDER
+        async function loadAppointments() {
+
+            try {
+
+                const response = await fetch(
+                    `http://127.0.0.1:8000/appointments/provider/${providerId}`
+                );
+
+                appointments = await response.json();
+
+                console.log("Appointments:", appointments);
+
+                renderTable();
+
+            } catch (error) {
+
+                console.error("Failed to load appointments:", error);
+
+                document.getElementById("appointmentsTable").innerHTML =
+                    `<tr>
+                <td colspan="7" style="text-align:center;padding:2rem;color:#f56565">
+                    Failed to load appointments. Backend running?
+                </td>
+            </tr>`;
+            }
+        }
+
+
+        // RENDER TABLE
+        function renderTable() {
+
+            const tbody = document.getElementById("appointmentsTable");
+
+            if (!appointments.length) {
+
+                tbody.innerHTML =
+                    `<tr>
+                <td colspan="7" style="text-align:center;padding:2rem">
+                    No appointments found
+                </td>
+            </tr>`;
+
+                updateSummary();
+                return;
+            }
+
+            tbody.innerHTML = appointments.map(app => `
+
+        <tr data-appointment-id="${app.id}">
+
+            <td>${app.name}</td>
+
+            <td>${app.phone}</td>
+
+            <td>${app.date}</td>
+
+            <td>${app.time}</td>
+
+            <td>${app.service?.title || "Not Available"}</td>
+
+            <td>
+                <span class="status ${getStatusClass(app.status)}">
+                    ${app.status || "Pending"}
+                </span>
+            </td>
+
+            <td>
+
+                ${isPending(app.status) ? `
+
+                    <button class="accept-btn"
+                        onclick="updateStatus(${app.id}, 'Accepted')">
+                        Accept
+                    </button>
+
+                    <button class="reject-btn"
+                        onclick="updateStatus(${app.id}, 'Rejected')">
+                        Reject
+                    </button>
+
+                ` : `
+                    <span style="color:${getStatusColor(app.status)}">
+                        ✓ ${app.status}
+                    </span>
+                `}
+
+            </td>
+
+        </tr>
+
+    `).join("");
+
+            updateSummary();
+        }
+
+
+        // UPDATE STATUS
+        async function updateStatus(appointmentId, statusText) {
+
+            const endpoint =
+                `http://127.0.0.1:8000/appointments/${appointmentId}/provider/${statusText.toLowerCase()}`;
+
+            try {
+
+                const response = await fetch(endpoint, {
+                    method: "PATCH"
+                });
+
+                if (!response.ok) throw new Error("Update failed");
+
+                const appointment = appointments.find(a => a.id == appointmentId);
+
+                if (appointment) {
+                    appointment.status = statusText;
+                }
+
+                renderTable();
+
+            } catch (error) {
+
+                console.error("Update failed:", error);
+
+                alert("Failed to update status.");
+            }
+        }
+
+
+        // STATUS CLASS
+        function getStatusClass(status) {
+
+            const lower = (status || "pending").toLowerCase();
+
+            if (lower === "accepted") return "accepted";
+
+            if (lower === "rejected") return "rejected";
+
+            return "pending";
+        }
+
+
+        // STATUS COLOR
+        function getStatusColor(status) {
+
+            const lower = (status || "pending").toLowerCase();
+
+            if (lower === "accepted") return "#48bb78";
+
+            if (lower === "rejected") return "#f56565";
+
+            return "#ed8936";
+        }
+
+
+        // CHECK PENDING
+        function isPending(status) {
+
+            return !status || status.toLowerCase() === "pending";
+        }
+
+
+        // SUMMARY
+        function updateSummary() {
+
+            const pendingCount =
+                appointments.filter(a => isPending(a.status)).length;
+
+            document.getElementById("summary").textContent =
+                `Showing ${appointments.length} appointments. Pending: ${pendingCount}`;
+        }
+
+
+        // LOGOUT
+        document.querySelector(".logout").addEventListener("click", function () {
+
+            localStorage.removeItem("provider_id");
+            localStorage.removeItem("provider_name");
+
+            alert("Logged out!");
+
+            window.location.href = "../Assesment/counselor-login.html";
+        });
+
+
+        // PAGE LOAD
+        document.addEventListener("DOMContentLoaded", () => {
+
+            loadAppointments();
+
+            setInterval(loadAppointments, 30000);
+
+        });
+
+    </script>
+</body>
+
+</html>

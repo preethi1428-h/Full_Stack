@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Healing Hands</title>
+  <link rel="stylesheet" href="../style.css/resources.css">
+</head>
+
+<body>
+  <header>
+    <div class="title">
+      <p>De Addiction centre,Rehabilitation Centre</p>
+      <div class="title-group">
+        <img src="../asserts/logo original.png" alt="logo" height="60px" width="60">
+        <h1>HEALING <br> HANDS</h1>
+        <img class="img2" src="../asserts/Email logo.png" alt="logo" height="50px" width="50px">
+        <div class="content">
+          <h3>Email</h3>
+          <p>healinghands@gmail.com</p>
+        </div>
+        <img class="img2" src="../asserts/phone logo.png" alt="logo" height="50px" width="50px">
+        <div class="content">
+          <h3>Call Now</h3>
+          <p>6380609753</p>
+        </div>
+
+        <a href="../Assesment/appointment.html" class="btn-primary">APPOINTMENT</a>
+        <div class="login" id="authSection"></div>
+        
+      </div>
+    </div>
+    <div>
+      <nav>
+        <a href="../../index.html">HOME</a>
+        <a href="../Assesment/services.html">SERVICES</a>
+        <a href="../Assesment/my_appointment.html">MY APPOINTMENT</a>
+        <a href="../Assesment/contact.html">CONTACT</a>
+
+      </nav>
+
+    </div>
+    </div>
+  </header>
+  <section class="resources">
+    <h2>Helpful Resources</h2>
+    <p>You are not alone. Here are some trusted organizations and resources that can provide additional support and
+      information.</p>
+
+    <div class="hotlines">
+      <h3>📞 Immediate Support Hotlines</h3>
+
+      <div class="box">
+        <h4>Substance Abuse and Mental Health Services Administration (SAMHSA) National Helpline</h4>
+        <p><strong>1-800-662-HELP (4357)</strong></p>
+        <p>A confidential, free, 24/7 information service for individuals and family members facing mental and/or
+          substance use disorders.</p>
+      </div>
+
+      <div class="box">
+        <h4>National Suicide Prevention Lifeline</h4>
+        <p><strong>988</strong></p>
+        <p>Free and confidential support for people in distress, prevention and crisis resources for you or your loved
+          ones.</p>
+      </div>
+    </div>
+  </section>
+  <div class="org-section">
+    <h2>📖 Organizations & Information</h2>
+
+    <div class="org-box">
+      <h3>SMART Recovery <span class="arrow">→</span></h3>
+      <p>A global community of mutual-support groups that offers a self-empowering addiction recovery support program.
+      </p>
+    </div>
+
+    <div class="org-box">
+      <h3>Alcoholics Anonymous (A.A.) <span class="arrow">→</span></h3>
+      <p>An international fellowship of men and women who have had a drinking problem.</p>
+    </div>
+
+    <div class="org-box">
+      <h3>Narcotics Anonymous (N.A.) <span class="arrow">→</span></h3>
+      <p>A global, community-based organization with a multilingual and multicultural membership.</p>
+    </div>
+
+    <div class="org-box">
+      <h3>National Institute on Drug Abuse (NIDA) <span class="arrow">→</span></h3>
+      <p>Advances science on the causes and consequences of drug use and addiction and applies that knowledge to improve
+        public health.</p>
+    </div>
+  </div>
+  <div class="note-box">
+    <h3>A Note on These Resources</h3>
+    <p>SerenePath provides these links for informational purposes only. We are not affiliated with these organizations
+      and do not endorse them. Please use your own discretion. In a medical emergency, please call 911.</p>
+  </div>
+
+  <footer>
+    <div>
+      <h4>Healing hands</h4>
+      <p>Your AI-powered companion on the journey to recovery.</p>
+    </div>
+
+    <div>
+      <h4>Quick Links</h4>
+      <a href="../Assesment/about_us.html">About Us</a><br>
+      <a href="../Assesment/resources.html">Resources</a><br>
+      <a href="../Assesment/contact.html">Contact</a><br>
+      <a href="../Assesment/privacy_policy.html">Privacy Policy</a>
+    </div>
+
+    <div>
+      <h4>Support</h4>
+      <a href="../Assesment/help_center.html">Help Center</a><br>
+      <a href="../Assesment/community_guideliness.html">Community Guidelines</a>
+    </div>
+  </footer>
+
+  <div class="bottom">
+    &copy;2026 Healing Hands. All Rights Reserved
+  </div>
+
+
+
+</body>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+
+    const authSection = document.getElementById("authSection");
+    const userData = JSON.parse(localStorage.getItem("loggedInUser"));
+
+    if (userData) {
+      authSection.innerHTML = `
+      <button class="logout-btn" onclick="logout()">LOGOUT</button>
+    `;
+    } else {
+      authSection.innerHTML = `
+      <a href="../Assesment/login.html" class="login-btn">LOGIN</a>
+    `;
+    }
+
+    window.logout = function () {
+      localStorage.removeItem("loggedInUser");
+      alert("Logged out successfully!");
+      window.location.reload();
+    };
+
+  });
+</script>
+
+</html>

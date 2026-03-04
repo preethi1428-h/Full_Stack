@@ -1,0 +1,275 @@
+body {
+  font-family: Arial, sans-serif, Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  color: #333;
+  margin-top: 230px;
+}
+/* Header */
+* {
+  margin: 0px;
+  padding: 0px;
+}
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.title > p {
+  padding: 10px 90px;
+  border-bottom: 1px solid black;
+}
+.title > .title-group > img {
+  border-radius: 50%;
+}
+.title > .title-group {
+  background-color: #ffffff;
+  padding: 10px;
+  padding-left: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid black;
+  box-shadow: 0px 0px 5px;
+}
+.title-group {
+  display: flex;
+}
+.title-group > h1 {
+  font-family: "Times New Roman", Times, serif;
+  font-size: large;
+  padding-left: 15px;
+  padding-top: 6px;
+}
+.img2 {
+  margin-left: 180px;
+}
+.content {
+  padding-top: 5px;
+  padding-left: 20px;
+}
+.content > p {
+  color: red;
+}
+nav {
+  background-color: #2bbec1;
+  justify-content: flex-start;
+  display: flex;
+  padding: 15px;
+}
+nav > a {
+  padding-left: 100px;
+  text-decoration: none;
+  font-size: large;
+  color: white;
+  transition: 0.3s;
+}
+nav > a:hover {
+  color: black;
+}
+#imp {
+  display: flex;
+  justify-content: flex-end;
+}
+/* ----------------- BUTTONS ----------------- */
+.btn-primary {
+  margin-left: 220px;
+  display: inline-flex;
+  justify-content: center;
+  padding: 8px 15px;
+  background-color: #2bbec1;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: 0.3s ease;
+  margin-top: 20px;
+}
+
+.btn-primary:hover {
+  background-color: #249c9a;
+}
+.btn-primary>a:hover{
+  color: black;
+}
+
+.login-btn,
+.logout-btn {
+  display: inline-flex;
+  justify-content: center;
+  background-color: #2bbec1;
+  color: white;
+  border: none;
+  padding: 11px 15px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.3s;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.logout-btn {
+  background-color: #e74c3c;
+}
+
+.login-btn:hover {
+  background-color: #249c9a;
+}
+
+.logout-btn:hover {
+  background-color: #c0392b;
+}
+
+/* body */
+.resources {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.resources h2 {
+  font-size: 2rem;
+  color: #1f2a44;
+}
+
+.resources p {
+  color: #555;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+.hotlines {
+  max-width: 700px;
+  margin: 40px auto;
+  text-align: left;
+}
+
+.hotlines h3 {
+  color: #0d9488;
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+}
+
+.box {
+  background-color: #ffe6e6;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.box h4 {
+  color: #9b1c1c;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.box strong {
+  color: #d90429;
+  font-size: 1.3rem;
+}
+
+.box p {
+  color: #444;
+  line-height: 1.6;
+}
+.org-section {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+}
+
+.org-section h2 {
+  color: #0d9488;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.org-box {
+  background-color: #f5f9fa;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.org-box h3 {
+  color: #1f2a44;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.org-box p {
+  color: #444;
+  line-height: 1.6;
+}
+
+.arrow {
+  color: #0d9488;
+}
+.note-box {
+  background-color: #f5f9fa;
+  border-radius: 10px;
+  padding: 30px;
+  max-width: 900px;
+  margin: 40px auto;
+  text-align: center;
+}
+
+.note-box h3 {
+  color: #1f2a44;
+  margin-bottom: 15px;
+}
+
+.note-box p {
+  color: #444;
+  line-height: 1.6;
+}
+/* Footer */
+footer {
+  background-color: #0c3b52;
+  color: white;
+  padding: 40px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  text-align: left;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+footer div {
+  max-width: 250px;
+  margin: 10px;
+}
+
+footer h4 {
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+footer p,
+footer a {
+  color: #dcdcdc;
+  font-size: 14px;
+  line-height: 1.6;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+  color: #6ee7f9;
+}
+
+.bottom {
+  text-align: center;
+  background-color: #0c3b52;
+  padding: 15px;
+  color: #ccc;
+  border-top: 1px solid #999;
+  font-size: 13px;
+}

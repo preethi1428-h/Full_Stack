@@ -1,0 +1,225 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #2bbec1 0%, #2bbec1 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            color: #2bbec1;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .logout {
+            background: #ed4141;
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .logout:hover {
+            background: #ff5252;
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .welcome-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.817);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .welcome-card h2 {
+            color: #4a5568;
+            margin-bottom: 0.5rem;
+        }
+
+        .welcome-card span {
+            color: #2bbec1;
+            font-weight: 700;
+        }
+
+        .welcome-card p {
+            color: #718096;
+            font-size: 1.1rem;
+        }
+
+        .table-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.817);
+            overflow: hidden;
+        }
+
+        .table-card h3 {
+            background-color: #2bbec1;
+            color: white;
+            padding: 1.5rem 2rem;
+            margin: 0;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+            max-height: 500px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 800px;
+        }
+
+        th {
+            background: #f7fafc;
+            padding: 1.2rem 1rem;
+            text-align: left;
+            font-weight: 600;
+            color: #4a5568;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        tr:hover {
+            background: #f8f9ff;
+        }
+
+        .status {
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            border: none;
+            cursor: default;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .status.pending {
+            background: #ed8936;
+            color: white;
+        }
+
+        .status.accepted {
+            background: #48bb78;
+            color: white;
+        }
+
+        .status.rejected {
+            background: #f56565;
+            color: white;
+        }
+
+        .accept-btn, .reject-btn {
+            padding: 0.6rem 1.2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin: 0 0.3rem;
+            transition: all 0.3s ease;
+        }
+
+        .accept-btn {
+            background: #48bb78;
+            color: white;
+        }
+
+        .accept-btn:hover:not(:disabled) {
+            background: #38a169;
+            transform: translateY(-1px);
+        }
+
+        .reject-btn {
+            background: #f56565;
+            color: white;
+        }
+
+        .reject-btn:hover:not(:disabled) {
+            background: #e53e3e;
+            transform: translateY(-1px);
+        }
+
+        .accept-btn:disabled, .reject-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .action-completed {
+            padding: 0.6rem 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .summary {
+            padding: 1rem 2rem;
+            background: #f7fafc;
+            text-align: right;
+            font-weight: 600;
+            color: #4a5568;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: #0c3b52;
+            color: rgba(255, 255, 255, 0.9);
+            margin-top: 6.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 1rem;
+                padding: 0 1rem;
+            }
+            
+            .navbar {
+                padding: 1rem;
+            }
+            
+            .welcome-card {
+                padding: 1.5rem;
+            }
+            
+            th, td {
+                padding: 0.8rem 0.5rem;
+                font-size: 0.9rem;
+            }
+        }
