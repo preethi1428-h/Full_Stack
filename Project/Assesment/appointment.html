@@ -225,7 +225,7 @@
 
         counselorDropdown.innerHTML = "<option>Loading...</option>";
 
-        fetch(`http://127.0.0.1:8000/provider/by-service/${serviceId}`)
+        fetch(`https://healing-hands-fastapi-2.onrender.com/provider/by-service/${serviceId}`)
           .then(res => res.json())
           .then(data => {
 
@@ -330,7 +330,7 @@
         submitBtn.innerText = "Booking...";
 
         // API CALL
-        fetch("http://127.0.0.1:8000/appointments/", {
+        fetch("https://healing-hands-fastapi-2.onrender.com/appointments/", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({

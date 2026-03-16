@@ -110,7 +110,7 @@
       //  Load Appointments
       container.innerHTML = "<p>Loading appointments...</p>";
 
-      fetch(`http://127.0.0.1:8000/appointments/my/${userId}`)
+      fetch(`https://healing-hands-fastapi-2.onrender.com/appointments/my/${userId}`)
         .then(res => {
           if (!res.ok) throw new Error("Server error");
           return res.json();
