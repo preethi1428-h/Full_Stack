@@ -225,7 +225,7 @@
 
         counselorDropdown.innerHTML = "<option>Loading...</option>";
 
-        fetch(`https://healing-hands-fastapi-2.onrender.com/provider/by-service/${serviceId}`)
+        (`https://healing-hands-fastapi-2.onrender.com/provider/by-service/${serviceId}`)
           .then(res => res.json())
           .then(data => {
 
