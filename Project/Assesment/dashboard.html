@@ -22,7 +22,8 @@
         <!-- Welcome Card -->
         <div class="welcome-card">
             <h2>Welcome, <span>Dr. Sarah Smith</span></h2>
-            <p>Addiction Specialist: Alcohol De-Addiction</p>
+            <p>Addiction Specialist: <span id="specialization">Loading...</span></p>
+            <!-- <p>Addiction Specialist: Alcohol De-Addiction</p> -->
         </div>
 
         <!-- Appointments Table -->
@@ -67,9 +68,19 @@
         }
 
         // SHOW PROVIDER NAME
+
+        const serviceMap = {
+            1: "Alcohol De-Addiction",
+            2: "Smoking De-Addiction",
+            3: "Drug De-Addiction"
+        };
         document.querySelector(".welcome-card h2 span").textContent =
             providerName || "Counselor";
 
+        const providerSpecialization = localStorage.getItem("provider_specialization");
+
+        document.getElementById("specialization").textContent =
+            serviceMap[providerSpecialization] || "Not Available";
 
         // LOAD APPOINTMENTS FOR THIS PROVIDER
         async function loadAppointments() {
