@@ -179,11 +179,11 @@
                     return res.json();
                 })
                 .then(data => {
-                    alert("Registration Successful ");
+                    alert("Registration Successful ✅ ");
                     window.location.href = "./counselor-login.html";
                 })
                 .catch(error => {
-                    alert(error.detail || "Registration failed");
+                    alert(error.detail || "Registration failed ❌");
                     console.error(error);
                 });
 

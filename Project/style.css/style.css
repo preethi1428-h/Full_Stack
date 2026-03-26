@@ -20,22 +20,32 @@ z-index:1000;
 box-shadow:0 2px 6px rgba(0,0,0,0.1);
 }
 
-/* Top small text */
 
-.title>p{
-padding:10px 60px;
-border-bottom:1px solid #000;
-font-size:14px;
+
+.title > p {
+  padding: 10px 90px;
+  border-bottom: 1px solid rgb(0, 0, 0);
 }
-
-/* Main header row */
-
-.title-group{
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:15px 60px;
-border-bottom:1px solid #ccc;
+.title > .title-group > img {
+  border-radius: 50%;
+}
+.title > .title-group {
+  background-color: #ffffff;
+  padding: 10px;
+  padding-left: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid black;
+  box-shadow: 0px 0px 5px;
+}
+.title-group {
+  display: flex;
+}
+.title-group > h1 {
+  font-family: "Times New Roman", Times, serif;
+  font-size: large;
+  padding-left: 15px;
+  padding-top: 6px;
 }
 
 /* Logo section */
@@ -80,15 +90,16 @@ gap:15px;
 }
 
 .btn-primary{
-background:#2bbec1;
-color:white;
-padding:10px 18px;
-border-radius:6px;
-text-decoration:none;
-font-weight:600;
-transition:0.3s;
-margin-top: 20px;
-
+  margin-left: 220px;
+  padding: 10px 15px;
+  background-color: #2bbec1;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: 0.3s ease;
+  margin-top: 21px;
 }
 
 .btn-primary:hover{
@@ -97,14 +108,22 @@ background:#249c9a;
 
 .login-btn,
 .logout-btn{
-background:#2bbec1;
-color:white;
-padding:10px 18px;
-border-radius:6px;
-border:none;
-cursor:pointer;
-font-weight:600;
-text-decoration:none;
+
+  display: inline-flex;
+  justify-content: center;
+  background-color: #2bbec1;
+  color: white;
+  border: none;
+  padding: 12px 15px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.3s;
+  margin-top: 20px;
+  margin-left: 20px;
+
 }
 
 .logout-btn{
@@ -186,12 +205,12 @@ padding:8px 60px;
 }
 nav {
   background-color: #2bbec1;
-  justify-content: flex-start;
+  justify-content: center;
   display: flex;
   padding: 15px;
 }
 nav > a {
-  padding-left: 100px;
+  padding-left: 50px;
   text-decoration: none;
   font-size: large;
   color: white;
@@ -225,13 +244,18 @@ a:hover {
   font-weight: 600;
   cursor: pointer;
   text-decoration: none;
-  margin-left: 15px;
+  margin-left: 10px;
   transition: 0.3s;
   margin-top: 20px;
+  margin-right: 40px;
+  
 }
-
+.login-btn{
+  margin-top:20px;
+}
 .logout-btn {
   background-color: #e74c3c;
+  margin-right: 20px;
 }
 
 .login-btn:hover {
