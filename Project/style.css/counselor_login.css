@@ -148,3 +148,166 @@ button:hover {
     font-size: 0.9rem;
   }
 }
+
+
+
+
+/* ===================== GLOBAL RESPONSIVE STYLES ===================== */
+@media (max-width: 1024px) {
+    /* Adjust body margin for fixed headers */
+    body {
+        margin-top: 130px;
+    }
+
+    /* Header & Navigation */
+    .title-group {
+        flex-direction: column  ;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+        padding: 15px;
+    }
+
+    .title-group > h1 {
+        padding-left: 0;
+    }
+
+    .title-group > img, .img2 {
+        margin: 0 auto  ;
+    }
+
+    .content, .content1 {
+        padding-left: 0;
+        text-align: center;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        gap: 15px;
+        padding: 15px;
+        justify-content: center;
+    }
+
+    nav > a {
+        padding-left: 0  ;
+        margin-left: 10px  ;
+        font-size: 16px;
+    }
+
+    /* Buttons */
+    .btn-primary {
+        margin-left: 0  ;
+        margin-top: 10px  ;
+    }
+
+    .login-btn, .logout-btn {
+        margin-left: 10px  ;
+        margin-bottom: 10px  ;
+    }
+
+    /* Layout adjustments for forms and grids */
+    .info-section, .services-section, .cards, .features, .feature-container, .section, .contact-container {
+        flex-direction: column  ;
+        align-items: center;
+        grid-template-columns: 1fr  ;
+        margin: 20px auto  ;
+        padding: 20px  ;
+    }
+
+    .feature, .card, .info-box, .box, .org-box, .note-box, .wrapper, .login-container {
+        /* width: 100%  ; */
+        min-width: unset  ;
+        max-width: 100%  ;
+        box-sizing: border-box;
+    }
+
+    /* Footer */
+    footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 30px 20px;
+    }
+
+    footer div {
+        max-width: 100%;
+        margin: 15px 0;
+    }
+
+    .bottom {
+        font-size: 12px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        margin-top: 100px;
+    }
+    
+    .title > p {
+        padding: 10px  ;
+        text-align: center;
+        font-size: 14px;
+    }
+
+    header {
+        position: sticky;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    nav > a {
+        width: 100%;
+        text-align: center;
+        padding: 10px 0  ;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+}
+  
+@media (max-width: 480px) {
+    .title-group > h1 {
+        font-size: 20px;
+    }
+    
+    .resources h2, .about-section h1, .contact-container h2, h2, h1 {
+        font-size: 1.8rem;
+    }
+    
+    .subtitle, .mission p, .vision p, p {
+        font-size: 15px;
+    }
+}
+
+/* ===================== MOBILE HEADER FIXES ===================== */
+@media (max-width: 1024px) {
+    header {
+        position: static ;
+    }
+    body {
+        margin-top: 0 ;
+        padding-top: 0  ;
+    }
+    .btn-primary, .login-btn, .logout-btn {
+        margin: 10px auto  ;
+        display: block  ;
+        width: 90%  ;
+        text-align: center  ;
+    }
+}
+@media (max-width: 768px) {
+    header {
+        position: static  ;
+    }
+    body {
+        margin-top: 0  ;
+        padding-top: 0  ;
+    }
+    .title > p {
+        margin-top: 0  ;
+    }
+}
